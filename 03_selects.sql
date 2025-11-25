@@ -11,35 +11,40 @@ DESC funcionarios;
 DESC maquinas;
 DESC ordens_producao;
 
+-- A: Listagem completa das ordens (produto, maquina, funcionario, datas, status)
 SELECT op.id,
        p.sku,
        p.nome AS produto,
-       f.nome AS funcionario,
        m.nome AS maquina,
+       f.nome AS funcionario,
        op.data_inicio,
        op.data_fim,
        op.status
 FROM ordens_producao op
-JOIN produtos p ON p.id = op.id_produto
-JOIN funcionarios f ON f.id = op.id_funcionario
-JOIN maquinas m ON m.id = op.id_maquina
+JOIN produtos p ON op.id_produto = p.id
+JOIN maquinas m ON op.id_maquina = m.id
+JOIN funcionarios f ON op.id_funcionario = f.id
 ORDER BY op.data_inicio DESC;
 
--- Filtrar funcionários inativos
-SELECT * FROM funcionarios WHERE ativo = 0;
+-- B: Filtrar funcionarios inativos
+SELECT id, nome, area FROM funcionarios WHERE ativo = 0;
 
--- Contagem total de produtos por responsavel tecnico
+-- C: Contagem total de produtos por responsavel tecnico
 SELECT responsavel_tecnico, COUNT(*) AS total_produtos
 FROM produtos
 GROUP BY responsavel_tecnico
 ORDER BY total_produtos DESC;
 
--- Seleção produtos cujo nome começa com 'P'
-SELECT * FROM produtos WHERE nome_comercial LIKE 'P%';
+-- D: Seleção de produtos cujo nome começa com 'P' 
+SELECT id, nome FROM produtos WHERE nome LIKE 'P%';
 
--- Calcular idade do produto (anos desde data_criacao) --- EXCLUIR, NÃO ENSINADO EM AULA
-SELECT id, nome,
-       TIMESTAMPDIFF(YEAR, data_criacao, CURDATE()) AS idade_anos
+-- E: Idade do produto em anos desde data_criacao
+SELECT id, nome, TIMESTAMPDIFF(YEAR, data_criacao, CURDATE()) AS "idade em anos"  -- timestampdiff calcula diferença entre data inicial e data final
 FROM produtos;
 
- 
+-- F: Consulta simples por ordem (produto + funcionario) — JOIN em 2 tabelas
+SELECT op.id, p.nome AS produto, f.nome AS funcionario, op.status
+FROM ordens_producao op
+JOIN produtos p ON op.id_produto = p.id
+JOIN funcionarios f ON op.id_funcionario = f.id
+ORDER BY op.id;

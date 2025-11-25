@@ -40,7 +40,7 @@ CREATE TABLE ordens_producao (
   id_funcionario INT NOT NULL,
   id_maquina INT NOT NULL,
   data_inicio DATETIME NOT NULL,
-  data_fim DATETIME DEFAULT NULL,
+  data_fim DATETIME DEFAULT( NULL),
   status ENUM('EM PRODUÇÃO','FINALIZADA','CANCELADA') NOT NULL DEFAULT('EM PRODUÇÃO'),
   FOREIGN KEY (id_produto) REFERENCES produtos(id),
   FOREIGN KEY (id_funcionario) REFERENCES funcionarios(id),
