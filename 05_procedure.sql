@@ -13,9 +13,10 @@ DESC ordens_producao;
 
 DELIMITER $$
 
+-- util  para o gestor registrar ordem de produção mais facilmente
 
--- util 
 DROP PROCEDURE IF EXISTS registrar_ordem$$
+
 CREATE PROCEDURE registrar_ordem(
   IN p_produto INT,
   IN p_funcionario INT,
@@ -32,8 +33,10 @@ END$$
 DELIMITER ;
 
 
--- Exemplo de uso: 
+-- Exemplo de uso:
+-- parametros : id do produto, id do funcionario(responsavel tecnico), id da maquina 
 CALL registrar_ordem(1,2,1);
+-- retorna id da ordem registrada que pode ser consultada abaixo
 
 select * from ordens_producao
 where id = 0; -- substituir id 0 pelo id retornado no registro da procedure

@@ -20,7 +20,7 @@ SELECT op.id,
        op.data_inicio,
        op.data_fim,
        op.status
-FROM ordens_producao op
+FROM ordens_producao op 
 JOIN produtos p ON op.id_produto = p.id
 JOIN maquinas m ON op.id_maquina = m.id
 JOIN funcionarios f ON op.id_funcionario = f.id

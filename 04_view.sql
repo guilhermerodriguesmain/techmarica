@@ -14,12 +14,13 @@ DESC ordens_producao;
 -- view útil para o gestor (RESUMO DA PRODUÇÃO)
 
 DROP VIEW IF EXISTS vw_producao_resumo;
+
 CREATE VIEW vw_producao_resumo AS 
 SELECT op.id,
        p.sku,
-       p.nome AS produto,
-       f.nome AS funcionario,
-       m.nome AS maquina,
+       p.nome AS Produto,
+       f.nome AS Responsavel_tecnico,
+       m.nome AS Maquina,
        op.data_inicio,
        op.data_fim,
        op.status

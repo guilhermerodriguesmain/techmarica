@@ -6,7 +6,7 @@
 USE techmarica;
 SHOW TABLES;
 
--- Inserir 5 produtos (exemplos)
+-- Inserir 5 produtos 
 DESC produtos;
 INSERT INTO produtos (sku, nome, responsavel_tecnico, custo, data_criacao) VALUES
 ('P-001','Sensor Térmico X','Carlos Souza', 12.50, '2021-03-10'),
