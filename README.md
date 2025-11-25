@@ -8,7 +8,7 @@ Toda a estrutura foi organizada para facilitar a navegação, leitura e validaç
 
 2. MiniMundo — TechMaricá Indústria Eletrônica S.A.
 
-Imagine uma indústria moderna no interior de Maricá: a TechMaricá Indústria Eletrônica S.A.
+A TechMaricá Indústria Eletrônica S.A.
 Uma empresa em expansão, produzindo sensores, módulos inteligentes, placas de circuito e componentes de alta precisão.
 
 Conforme a fábrica cresceu, surgiu um problema comum em ambientes industriais:
@@ -62,9 +62,7 @@ uma VIEW consolidada
 
 uma stored procedure para registrar ordens automaticamente
 
-um trigger que atualiza o status da produção
-
-Esses elementos demonstram domínio das capacidades práticas estudadas na disciplina, mantendo a estrutura do projeto enxuta para facilitar avaliação e execução.
+um trigger que atualiza o status da produção.
 
 4. Estrutura do Repositório
 /TechMarica-BD/
@@ -91,5 +89,3 @@ Para facilitar a correção e garantir consistência:
 05_procedure.sql – registro da stored procedure
 
 06_trigger.sql – criação do trigger automático
-
-Essa sequência permite ao professor executar o projeto rapidamente, garantindo que tudo funcione conforme o esperado.
